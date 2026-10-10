@@ -1,0 +1,12 @@
+"species","latin","maxTSS_thr","sens","spec","tss","sens90_thr","n_train"
+"autumn_olive","Elaeagnus umbellata",0.5925,0.894,0.851,0.745,0.5815,9620
+"bittersweet","Celastrus orbiculatus",0.5315,0.884,0.864,0.748,0.4825,7391
+"burning_bush","Euonymus alatus",0.5935,0.86,0.857,0.717,0.5125,8813
+"common_buckthorn","Rhamnus cathartica",0.2275,0.877,0.825,0.703,0.1905,9389
+"garlic_mustard","Alliaria petiolata",0.2655,0.828,0.8,0.628,0.1945,10676
+"japanese_barberry","Berberis thunbergii",0.3795,0.895,0.827,0.722,0.3705,12454
+"knotweed","Reynoutria japonica",0.5135,0.885,0.838,0.723,0.4775,10474
+"multiflora_rose","Rosa multiflora",0.5535,0.907,0.807,0.714,0.5625,9792
+"norway_maple","Acer platanoides",0.3375,0.863,0.845,0.708,0.2895,9553
+"stiltgrass","Microstegium vimineum",0.5135,0.844,0.752,0.596,0.4255,8188
+"tree_of_heaven","Ailanthus altissima",0.5685,0.888,0.869,0.757,0.5395,9546

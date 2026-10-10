@@ -1,0 +1,41 @@
+
+# ── HELPERS ──────────────────────────────────────────────────────────────────
+rescale_biomod_raster <- function(r) {
+  if (max(terra::minmax(r)[2, ], na.rm = TRUE) > 1.5) r <- r / 1000
+  r
+}
+
+load_biomod_out <- function(path) {
+  env <- new.env()
+  loaded <- tryCatch(load(path, envir = env), error = function(e) character(0))
+  if (length(loaded) == 0) return(NULL)
+  env[[loaded[1]]]
+}
+
+load_species_biomod <- function(sid) {
+  biomod_sid <- gsub("_", ".", sid)
+  for (d_name in unique(c(biomod_sid, sid))) {
+    sp_dir <- file.path(biomod_root, d_name)
+    if (!dir.exists(sp_dir)) next
+    all_out  <- list.files(sp_dir, pattern = "\\.out$", full.names = TRUE)
+    em_files <- grep("ensemble\\.models\\.out$", all_out, value = TRUE)
+    bm_files <- grep("\\.models\\.out$",        all_out, value = TRUE)
+    bm_files <- setdiff(bm_files, em_files)
+    if (length(bm_files) == 0 || length(em_files) == 0) next
+    bm_file <- bm_files[order(file.mtime(bm_files), decreasing = TRUE)][1]
+    em_file <- em_files[order(file.mtime(em_files), decreasing = TRUE)][1]
+    bm_out <- load_biomod_out(bm_file)
+    em_out <- load_biomod_out(em_file)
+    if (is.null(bm_out) || is.null(em_out)) next
+    return(list(bm_out = bm_out, em_out = em_out,
+                biomod_sid = d_name, sp_dir = sp_dir))
+  }
+  return(NULL)
+}
+
+read_biomod_proj_rasters <- function(sp_dir, proj_name) {
+  proj_dir <- file.path(sp_dir, paste0("proj_", proj_name))
+  if (!dir.exists(proj_dir)) return(list(alg = NULL, em = NULL))
+  tifs <- list.files(proj_dir, pattern = "\\.tif$", full.names = TRUE)
+  em_tifs  <- grep("_ensemble\\.tif$", tifs, value = TRUE)
+  alg_tifs <- setdiff(tifs, em_tifs)

@@ -1,0 +1,12 @@
+"species","latin","n_pres","n_bg","algos_used","EMmean_AUC","EMmean_TSS","EMmean_Boyce","EMmean_calib","EMwmean_AUC","EMwmean_TSS"
+"autumn_olive","Elaeagnus umbellata",8059,8074,"GAM/GBM/GLM/MAXNET/RF",0.911,0.661,1,1.602,0.915,0.673
+"bittersweet","Celastrus orbiculatus",6974,8053,"GAM/GBM/GLM/MAXNET/RF",0.905,0.671,0.988,1.886,0.91,0.684
+"burning_bush","Euonymus alatus",8801,8289,"GAM/GBM/GLM/MAXNET/RF",0.922,0.699,0.988,1.415,0.923,0.701
+"common_buckthorn","Rhamnus cathartica",25730,8431,"GAM/GBM/GLM/MAXNET/RF",0.894,0.619,0.988,1.341,0.879,0.571
+"garlic_mustard","Alliaria petiolata",33262,8257,"GAM/GBM/GLM/MAXNET/RF",0.888,0.636,1,1.321,0.882,0.619
+"japanese_barberry","Berberis thunbergii",5887,8084,"GAM/GBM/GLM/MAXNET/RF",0.908,0.64,1,1.449,0.908,0.64
+"knotweed","Reynoutria japonica",7996,7987,"GAM/GBM/GLM/MAXNET/RF",0.913,0.685,1,1.596,0.917,0.695
+"multiflora_rose","Rosa multiflora",8829,8227,"GAM/GBM/GLM/MAXNET/RF",0.902,0.629,1,1.583,0.902,0.628
+"norway_maple","Acer platanoides",22298,8196,"GAM/GBM/GLM/MAXNET/RF",0.922,0.687,1,1.687,0.912,0.66
+"stiltgrass","Microstegium vimineum",5994,8181,"MAXNET",0.877,0.635,1,1.001,0.877,0.635
+"tree_of_heaven","Ailanthus altissima",4880,9403,"GAM/GBM/GLM/MAXNET/RF",0.948,0.738,1,1.295,0.949,0.741

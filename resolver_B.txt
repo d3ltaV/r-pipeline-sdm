@@ -1,0 +1,26 @@
+project_one_species <- function(sp, n_cpu_bio = 1L) {
+  sid <- sp$short_id
+
+  if (species_is_done(sid)) {
+    checkpoint(sid, "already complete — skipping")
+    return(invisible(TRUE))
+  }
+
+  checkpoint(sid, sprintf("=== %s === START  (mem=%.1f MB, nb.cpu=%d)",
+                          sp$latin, mem_mb(), n_cpu_bio))
+
+  worker_wd <- getwd()
+  on.exit(setwd(worker_wd), add = TRUE)
+
+  bundle <- load_species_biomod(sid)
+  if (is.null(bundle)) {
+    checkpoint(sid, "no biomod workspace; skipping")
+    return(invisible(FALSE))
+  }
+  bm_out     <- bundle$bm_out
+  em_out     <- bundle$em_out
+  biomod_sid <- bundle$biomod_sid
+  sp_dir     <- bundle$sp_dir
+  checkpoint(sid, sprintf("loaded biomod workspace  (mem=%.1f MB)", mem_mb()))
+
+  setwd(biomod_root)
